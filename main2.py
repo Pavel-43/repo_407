@@ -5,7 +5,7 @@ from PyQt6.QtGui import *
 from login import Ui_MainWindow as LoginWindow
 from products import Ui_MainWindow as ProductsUI
 from product_card import Ui_Form
-from interface import Ui_MainWindow as EditUI
+from edit_product import Ui_MainWindow as EditUI
 
 def select(query, params=()):
     con = mdb.connect("localhost", "root", "root", "shop")

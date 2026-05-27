@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
 from login import Ui_MainWindow as LoginWindow
 from products import Ui_MainWindow as ProductsUI
-from ut import Ui_Form
+from unti import Ui_Form
 from edit_product import Ui_MainWindow as EditUI
 
 def select(query, params=()):

@@ -5,7 +5,7 @@ from PyQt6.QtGui import *
 from login import Ui_MainWindow as LoginWindow
 from products import Ui_MainWindow as ProductsUI
 from product_card import Ui_Form
-from edit_product import Ui_MainWindow as EditUI
+from interface import Ui_MainWindow as EditUI
 
 def select(query, params=()):
     con = mdb.connect("localhost", "root", "root", "shop")
@@ -65,7 +65,7 @@ class ProductsWindow(QMainWindow):
         self.ui.label_user.setText(self.fio)
         if self.role == "admin":
             pass
-        elif self.role == "client":
+        elif self.role == "manager":
             self.ui.btn_add.hide()
             self.ui.btn_edit.hide()
             self.ui.btn_delete.hide()
@@ -257,23 +257,18 @@ class ProductForm(QMainWindow):
         quantity = self.ui.edit_quantity.text()
         discount = self.ui.edit_discount.text()
 
-        con = mdb.connect('localhost', 'root', 'root', 'shop')
-        cur = con.cursor()
-
         if self.product_id:
-            cur.execute("""
+            execute("""
                 UPDATE Products SET
                 Name=%s, CategoryID=%s, Description=%s,ManufacturerID=%s, SupplierID=%s,Price=%s, Unit=%s, StockQuantity=%s, Discount=%s, ImagePath=%s
                 WHERE ProductID=%s""",
                 (name, category_id, description,manufacturer_id, supplier_id, price, unit, quantity,discount, self.image_path, self.product_id))
         else:
-            cur.execute("""
+            execute("""
                 INSERT INTO Products(Name, CategoryID, Description, ManufacturerID, SupplierID,Price, Unit, StockQuantity, Discount, ImagePath)
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                 (name, category_id, description,manufacturer_id, supplier_id,price, unit, quantity, discount, self.image_path))
 
-        con.commit()
-        con.close()
         self.parent.search()
         self.close()
 

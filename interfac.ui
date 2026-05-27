@@ -57,7 +57,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="btn_upload_image">
        <property name="text">
         <string>Добавить фото</string>
        </property>
@@ -111,7 +111,7 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QComboBox" name="comboBox_manufacturer"/>
+      <widget class="QComboBox" name="combo_manufacturer"/>
      </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_7">
@@ -164,14 +164,14 @@
       <widget class="QLineEdit" name="edit_discount"/>
      </item>
      <item row="11" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btn_save">
        <property name="text">
         <string>Сохранить</string>
        </property>
       </widget>
      </item>
      <item row="11" column="1">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btn_cancel">
        <property name="text">
         <string>Отмена</string>
        </property>
